@@ -1,12 +1,346 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Project asdasd Hola</title>
+    <title>Vibe Coding for Designers</title>
+    <meta
+      name="description"
+      content="A modern beginner-friendly documentation platform that teaches designers how to start coding with AI, VSCode, terminal and GitHub."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Documentation navigation">
+        <div class="brand">
+          <span class="brand-pill">Start School Guide</span>
+          <h1>Vibe Coding<br />for Designers</h1>
+          <p>From zero code to shipping your first live project.</p>
+        </div>
+
+        <nav class="nav-list" id="sidebarNav">
+          <a href="#introduction" class="nav-link active">Introduction</a>
+          <a href="#getting-started" class="nav-link">Getting Started</a>
+          <a href="#basic-tools" class="nav-link">Basic Tools</a>
+          <a href="#projects" class="nav-link">Working With Projects</a>
+          <a href="#ai" class="nav-link">Working With AI</a>
+          <a href="#workflow" class="nav-link">Real Workflow</a>
+          <a href="#first-project" class="nav-link">First Project</a>
+          <a href="#best-practices" class="nav-link">Best Practices</a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p>Progress</p>
+          <strong id="progressLabel">0% complete</strong>
+        </div>
+      </aside>
+
+      <main class="content" id="contentRoot">
+        <section class="doc-section reveal" id="introduction" data-title="Introduction">
+          <p class="eyebrow">Chapter 1</p>
+          <h2>What is Vibe Coding?</h2>
+          <p class="lead">
+            Vibe Coding means building digital products by combining your design taste with AI-assisted coding tools.
+            You do not need to memorize programming first. You learn by shipping.
+          </p>
+
+          <div class="cards-grid">
+            <article class="card">
+              <h3>Why designers should learn it</h3>
+              <p>You can move from static mockups to real interactive experiences and test ideas faster.</p>
+            </article>
+            <article class="card">
+              <h3>What you can build</h3>
+              <p>Portfolios, landing pages, marketing sites, design systems docs, and small SaaS interfaces.</p>
+            </article>
+            <article class="card">
+              <h3>What changes for your career</h3>
+              <p>You become a designer who can prototype, collaborate with engineers, and ship independently.</p>
+            </article>
+          </div>
+
+          <div class="callout tip">
+            <p><strong>Tip:</strong> Think like a product designer. Start small, test quickly, and improve with each iteration.</p>
+          </div>
+
+          <div class="chapter-nav">
+            <span></span>
+            <a href="#getting-started" class="chapter-btn">Next chapter</a>
+          </div>
+        </section>
+
+        <section class="doc-section reveal" id="getting-started" data-title="Getting Started">
+          <p class="eyebrow">Chapter 2</p>
+          <h2>Programming, Local Servers, and Localhost</h2>
+          <p class="lead">Let’s remove the mystery. These concepts are simple once explained in plain language.</p>
+
+          <div class="step-list">
+            <div class="step-item">
+              <span class="step-index">01</span>
+              <div>
+                <h3>What programming actually is</h3>
+                <p>Programming is writing clear instructions so your computer can build and show your design decisions.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-index">02</span>
+              <div>
+                <h3>What a local server is</h3>
+                <p>A local server runs your website on your own machine so you can preview it before publishing.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-index">03</span>
+              <div>
+                <h3>What localhost means</h3>
+                <p><code>localhost</code> is your computer talking to itself. It is your private testing address.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout note">
+            <p><strong>Key concept:</strong> You are not “breaking the internet” while learning. You are experimenting safely on your own machine.</p>
+          </div>
+
+          <div class="chapter-nav">
+            <a href="#introduction" class="chapter-btn secondary">Previous</a>
+            <a href="#basic-tools" class="chapter-btn">Next chapter</a>
+          </div>
+        </section>
+
+        <section class="doc-section reveal" id="basic-tools" data-title="Basic Tools">
+          <p class="eyebrow">Chapter 3</p>
+          <h2>Basic Tools You Need</h2>
+          <p class="lead">You only need a few tools to start: code editor, terminal, and browser.</p>
+
+          <div class="tabs" data-tabs>
+            <div class="tab-buttons" role="tablist" aria-label="Tools tabs">
+              <button class="tab-btn active" role="tab" aria-selected="true" data-tab-target="editor">Code Editor</button>
+              <button class="tab-btn" role="tab" aria-selected="false" data-tab-target="terminal">Terminal</button>
+              <button class="tab-btn" role="tab" aria-selected="false" data-tab-target="commands">Commands</button>
+            </div>
+
+            <div class="tab-panel active" data-tab-panel="editor">
+              <h3>What is a code editor?</h3>
+              <p>It is your design canvas for code. <strong>Visual Studio Code</strong> is the easiest place to begin.</p>
+              <ul>
+                <li>Install VS Code</li>
+                <li>Open a folder/project</li>
+                <li>Edit files and save changes</li>
+              </ul>
+            </div>
+
+            <div class="tab-panel" data-tab-panel="terminal">
+              <h3>What is a terminal?</h3>
+              <p>It is a text-based control panel where you run commands like “start project” or “save changes”.</p>
+            </div>
+
+            <div class="tab-panel" data-tab-panel="commands">
+              <h3>Beginner terminal commands</h3>
+              <div class="code-block" data-code-block>
+                <button class="copy-btn" type="button">Copy</button>
+                <pre><code>pwd      # show current folder
+ls       # list files
+cd name  # enter folder
+mkdir x  # create folder
+code .   # open project in VS Code</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="chapter-nav">
+            <a href="#getting-started" class="chapter-btn secondary">Previous</a>
+            <a href="#projects" class="chapter-btn">Next chapter</a>
+          </div>
+        </section>
+
+        <section class="doc-section reveal" id="projects" data-title="Working With Projects">
+          <p class="eyebrow">Chapter 4</p>
+          <h2>Working With Projects, Git, and GitHub</h2>
+          <p class="lead">This is the collaboration layer. You and AI can code, but Git helps you manage versions safely.</p>
+
+          <div class="concept-grid">
+            <div class="concept"><h3>Repository</h3><p>Your project folder with full history.</p></div>
+            <div class="concept"><h3>Git</h3><p>The version control engine on your machine.</p></div>
+            <div class="concept"><h3>GitHub</h3><p>The cloud home for your repository.</p></div>
+            <div class="concept"><h3>Commit</h3><p>A saved checkpoint with a short message.</p></div>
+            <div class="concept"><h3>Branch</h3><p>A safe lane for testing changes.</p></div>
+            <div class="concept"><h3>Pull Request</h3><p>A request to merge work into the main version.</p></div>
+          </div>
+
+          <div class="code-block" data-code-block>
+            <button class="copy-btn" type="button">Copy</button>
+            <pre><code>git clone https://github.com/your-name/project-name.git
+cd project-name
+git checkout -b improve-homepage
+git add .
+git commit -m "Improve hero layout"
+git push origin improve-homepage</code></pre>
+          </div>
+
+          <div class="callout warn">
+            <p><strong>Warning:</strong> Never commit random files. Always check what changed before running <code>git add .</code></p>
+          </div>
+
+          <div class="chapter-nav">
+            <a href="#basic-tools" class="chapter-btn secondary">Previous</a>
+            <a href="#ai" class="chapter-btn">Next chapter</a>
+          </div>
+        </section>
+
+        <section class="doc-section reveal" id="ai" data-title="Working With AI">
+          <p class="eyebrow">Chapter 5</p>
+          <h2>Working With AI as a Design Partner</h2>
+          <p class="lead">AI helps you write, explain, and debug code. Your role is directing it with clear context.</p>
+
+          <div class="cards-grid two">
+            <article class="card">
+              <h3>What Vibe Coding means in practice</h3>
+              <p>Describe the visual outcome, constraints, and expected behavior. Ask AI to generate the smallest useful step.</p>
+            </article>
+            <article class="card">
+              <h3>Prompt formula for designers</h3>
+              <p><strong>Goal + Context + Constraints + Output format</strong> = higher-quality code and fewer rewrites.</p>
+            </article>
+          </div>
+
+          <div class="code-block" data-code-block>
+            <button class="copy-btn" type="button">Copy</button>
+            <pre><code>I am a beginner designer.
+Goal: Create a pricing section.
+Context: Existing site uses Inter and a clean white layout.
+Constraints: Vanilla HTML/CSS/JS only.
+Output: Return full code with comments and explain each block simply.</code></pre>
+          </div>
+
+          <div class="chapter-nav">
+            <a href="#projects" class="chapter-btn secondary">Previous</a>
+            <a href="#workflow" class="chapter-btn">Next chapter</a>
+          </div>
+        </section>
+
+        <section class="doc-section reveal" id="workflow" data-title="Real Workflow">
+          <p class="eyebrow">Chapter 6</p>
+          <h2>The Real Workflow You Will Repeat</h2>
+          <p class="lead">This is your practical weekly loop as a designer who codes.</p>
+
+          <ol class="workflow-list">
+            <li>Clone a project from GitHub</li>
+            <li>Open it in VS Code</li>
+            <li>Run the development server</li>
+            <li>Edit code and preview live</li>
+            <li>Make a commit</li>
+            <li>Push to GitHub</li>
+            <li>Create a pull request</li>
+          </ol>
+
+          <div class="section-divider"></div>
+
+          <div class="step-list compact">
+            <div class="step-item">
+              <span class="step-index">A</span>
+              <div>
+                <h3>Run local server</h3>
+                <p>Use <code>npm run dev</code> and open the shown localhost URL.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-index">B</span>
+              <div>
+                <h3>Edit and save</h3>
+                <p>Each save updates the preview. This is your fastest design feedback loop.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="chapter-nav">
+            <a href="#ai" class="chapter-btn secondary">Previous</a>
+            <a href="#first-project" class="chapter-btn">Next chapter</a>
+          </div>
+        </section>
+
+        <section class="doc-section reveal" id="first-project" data-title="First Project">
+          <p class="eyebrow">Chapter 7</p>
+          <h2>Your First Project: Ship a Simple Website</h2>
+          <p class="lead">You learn faster by publishing. Build, run, upload, and launch.</p>
+
+          <div class="cards-grid">
+            <article class="card">
+              <h3>1. Create files</h3>
+              <p>Start with <code>index.html</code>, <code>style.css</code>, and <code>script.js</code>.</p>
+            </article>
+            <article class="card">
+              <h3>2. Run locally</h3>
+              <p>Use a local dev server to preview your site.</p>
+            </article>
+            <article class="card">
+              <h3>3. Publish online</h3>
+              <p>Push to GitHub and deploy with GitHub Pages or Vercel.</p>
+            </article>
+          </div>
+
+          <div class="callout note">
+            <p><strong>Milestone:</strong> Your first live URL is your proof that you can ship code-based design work.</p>
+          </div>
+
+          <div class="chapter-nav">
+            <a href="#workflow" class="chapter-btn secondary">Previous</a>
+            <a href="#best-practices" class="chapter-btn">Next chapter</a>
+          </div>
+        </section>
+
+        <section class="doc-section reveal" id="best-practices" data-title="Best Practices">
+          <p class="eyebrow">Chapter 8</p>
+          <h2>Best Practices for Confident Progress</h2>
+          <p class="lead">You do not need to be perfect. You need a safe process.</p>
+
+          <div class="step-list">
+            <div class="step-item">
+              <span class="step-index">01</span>
+              <div>
+                <h3>How to read errors</h3>
+                <p>Read the first error line first. It usually points to the exact file and line to fix.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-index">02</span>
+              <div>
+                <h3>How to ask AI for help</h3>
+                <p>Share the error, expected behavior, and file snippet. Ask AI for minimal changes only.</p>
+              </div>
+            </div>
+            <div class="step-item">
+              <span class="step-index">03</span>
+              <div>
+                <h3>How to avoid breaking the project</h3>
+                <p>Work in branches, commit often, and test after each small change.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout tip">
+            <p><strong>Final reminder:</strong> Coding is a design medium. The more you practice small steps, the faster your confidence grows.</p>
+          </div>
+
+          <div class="chapter-nav">
+            <a href="#first-project" class="chapter-btn secondary">Previous</a>
+            <a href="#introduction" class="chapter-btn">Back to top</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
   </body>
 </html>

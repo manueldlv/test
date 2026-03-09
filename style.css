@@ -1,0 +1,458 @@
+:root {
+  --bg: #05070c;
+  --bg-soft: #0b0f18;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-strong: rgba(255, 255, 255, 0.08);
+  --text: #f5f7fb;
+  --muted: #a9b3c7;
+  --brand: #5ddee5;
+  --brand-2: #0957b2;
+  --warning: #ffb86b;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --border: 1px solid rgba(255, 255, 255, 0.11);
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1400px 700px at 20% -10%, rgba(93, 222, 229, 0.2), transparent 60%),
+    radial-gradient(1200px 700px at 85% 0%, rgba(9, 87, 178, 0.2), transparent 60%),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 100;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  transition: width 0.2s linear;
+}
+
+.app-shell {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 48px;
+  padding: 36px 32px 80px;
+}
+
+.sidebar {
+  position: sticky;
+  top: 20px;
+  height: calc(100vh - 40px);
+  border: var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border-radius: calc(var(--radius) + 2px);
+  backdrop-filter: blur(16px);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.brand-pill {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(93, 222, 229, 0.24);
+  color: var(--brand);
+  border-radius: 999px;
+  padding: 6px 12px;
+}
+
+.brand h1 {
+  margin: 18px 0 10px;
+  font: 800 clamp(1.6rem, 3vw, 2.3rem) / 1.03 "Space Grotesk", Inter, sans-serif;
+}
+
+.brand p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--muted);
+  border: 1px solid transparent;
+  border-radius: 11px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  background: var(--surface);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.nav-link.active {
+  color: #081018;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  border-color: transparent;
+  font-weight: 700;
+}
+
+.sidebar-footer {
+  border-top: var(--border);
+  padding-top: 16px;
+}
+
+.sidebar-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sidebar-footer strong {
+  margin-top: 6px;
+  display: block;
+  font-size: 1rem;
+}
+
+.content {
+  padding-right: 8px;
+}
+
+.doc-section {
+  min-height: 88vh;
+  padding: 44px 0 34px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.74rem;
+  color: var(--brand-2);
+  font-weight: 700;
+}
+
+h2 {
+  margin: 12px 0;
+  font: 800 clamp(2.2rem, 5vw, 4.4rem) / 1.01 "Space Grotesk", Inter, sans-serif;
+  max-width: 13ch;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.16rem;
+}
+
+.lead {
+  margin-top: 0;
+  margin-bottom: 30px;
+  color: #d7dff0;
+  max-width: 64ch;
+  font-size: 1.1rem;
+  line-height: 1.65;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cards-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card,
+.concept,
+.tab-panel,
+.code-block,
+.callout,
+.step-item {
+  background: var(--surface);
+  border: var(--border);
+  border-radius: var(--radius);
+}
+
+.card,
+.concept {
+  padding: 18px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover,
+.concept:hover {
+  transform: translateY(-3px);
+  border-color: rgba(93, 222, 229, 0.55);
+}
+
+.card p,
+.concept p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.callout {
+  margin-top: 18px;
+  padding: 14px 16px;
+}
+
+.callout p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.callout.tip {
+  border-left: 4px solid var(--brand-2);
+}
+
+.callout.note {
+  border-left: 4px solid var(--brand);
+}
+
+.callout.warn {
+  border-left: 4px solid var(--warning);
+}
+
+.step-list {
+  display: grid;
+  gap: 12px;
+}
+
+.step-item {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  align-items: start;
+  gap: 14px;
+  padding: 16px;
+}
+
+.step-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.step-index {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(93, 222, 229, 0.24);
+  color: var(--brand);
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.tabs {
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.tab-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tab-btn {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+  background: var(--surface-strong);
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+.tab-panel {
+  display: none;
+  padding: 16px;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.tab-panel ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.code-block {
+  margin-top: 16px;
+  position: relative;
+  overflow: auto;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 7px 11px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+pre {
+  margin: 0;
+  padding: 22px 16px 16px;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.9rem;
+  color: #d7fff8;
+}
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.workflow-list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 12px;
+  color: #e7ecf8;
+  font-size: 1.04rem;
+}
+
+.section-divider {
+  height: 1px;
+  margin: 24px 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.26), transparent);
+}
+
+.chapter-nav {
+  margin-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.chapter-btn {
+  text-decoration: none;
+  color: #071018;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.chapter-btn:hover {
+  transform: translateY(-2px);
+}
+
+.chapter-btn.secondary {
+  background: transparent;
+  color: var(--text);
+  border: var(--border);
+}
+
+@media (max-width: 1100px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 20px 16px 64px;
+  }
+
+  .sidebar {
+    position: relative;
+    top: 0;
+    height: auto;
+  }
+
+  .cards-grid,
+  .cards-grid.two,
+  .concept-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .doc-section {
+    min-height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .chapter-btn,
+  .card,
+  .concept {
+    transition: none;
+  }
+}
