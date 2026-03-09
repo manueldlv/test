@@ -3,339 +3,376 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vibe Coding for Designers</title>
+    <title>Vibe Coding for Designers | Start School Docs</title>
     <meta
       name="description"
-      content="A modern beginner-friendly documentation platform that teaches designers how to start coding with AI, VSCode, terminal and GitHub."
+      content="A visual and interactive documentation platform for designers learning vibe coding from zero."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="progress-track" aria-hidden="true">
-      <div class="progress-bar" id="progressBar"></div>
+    <div class="top-progress" aria-hidden="true">
+      <span id="progressBar"></span>
     </div>
 
-    <div class="app-shell">
-      <aside class="sidebar" aria-label="Documentation navigation">
-        <div class="brand">
-          <span class="brand-pill">Start School Guide</span>
-          <h1>Vibe Coding<br />for Designers</h1>
-          <p>From zero code to shipping your first live project.</p>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="logo-wrap">
+          <div class="logo-mark" aria-hidden="true"></div>
+          <div>
+            <p class="logo-title">Start School</p>
+            <p class="logo-sub">silicon slopes</p>
+          </div>
         </div>
 
-        <nav class="nav-list" id="sidebarNav">
+        <nav id="docNav" aria-label="Documentation sections">
           <a href="#introduction" class="nav-link active">Introduction</a>
-          <a href="#getting-started" class="nav-link">Getting Started</a>
-          <a href="#basic-tools" class="nav-link">Basic Tools</a>
-          <a href="#projects" class="nav-link">Working With Projects</a>
-          <a href="#ai" class="nav-link">Working With AI</a>
+          <a href="#mindset" class="nav-link">Mindset</a>
+          <a href="#fundamentals" class="nav-link">Fundamentals</a>
+          <a href="#tools" class="nav-link">Tools</a>
+          <a href="#terminal" class="nav-link">Terminal</a>
+          <a href="#git-github" class="nav-link">Git & GitHub</a>
+          <a href="#ai" class="nav-link">AI for Coding</a>
           <a href="#workflow" class="nav-link">Real Workflow</a>
           <a href="#first-project" class="nav-link">First Project</a>
-          <a href="#best-practices" class="nav-link">Best Practices</a>
+          <a href="#debug" class="nav-link">Debugging</a>
+          <a href="#glossary" class="nav-link">Glossary</a>
+          <a href="#roadmap" class="nav-link">30-Day Roadmap</a>
+          <a href="#faq" class="nav-link">FAQ</a>
         </nav>
 
-        <div class="sidebar-footer">
-          <p>Progress</p>
-          <strong id="progressLabel">0% complete</strong>
-        </div>
+        <button class="pill-btn" data-scroll="#first-project" type="button">Start Project</button>
       </aside>
 
-      <main class="content" id="contentRoot">
-        <section class="doc-section reveal" id="introduction" data-title="Introduction">
-          <p class="eyebrow">Chapter 1</p>
+      <main class="content">
+        <section class="doc-section" id="introduction">
+          <p class="eyebrow">Introduction</p>
           <h2>What is Vibe Coding?</h2>
           <p class="lead">
-            Vibe Coding means building digital products by combining your design taste with AI-assisted coding tools.
-            You do not need to memorize programming first. You learn by shipping.
+            Vibe Coding is a design-first way to build digital products. You lead with UX and visual decisions,
+            and use modern tools + AI to turn ideas into working interfaces.
           </p>
 
-          <div class="cards-grid">
-            <article class="card">
-              <h3>Why designers should learn it</h3>
-              <p>You can move from static mockups to real interactive experiences and test ideas faster.</p>
+          <div class="card-grid three">
+            <article class="card hover-rise">
+              <h3>From static mockups to real products</h3>
+              <p>You move from screens to interactive experiences that people can actually use.</p>
             </article>
-            <article class="card">
-              <h3>What you can build</h3>
-              <p>Portfolios, landing pages, marketing sites, design systems docs, and small SaaS interfaces.</p>
+            <article class="card hover-rise">
+              <h3>Learn by building</h3>
+              <p>You do not need to master theory first. You learn through small, practical projects.</p>
             </article>
-            <article class="card">
-              <h3>What changes for your career</h3>
-              <p>You become a designer who can prototype, collaborate with engineers, and ship independently.</p>
+            <article class="card hover-rise">
+              <h3>Career advantage</h3>
+              <p>You become the designer who can prototype, test, and ship faster.</p>
             </article>
           </div>
 
           <div class="callout tip">
-            <p><strong>Tip:</strong> Think like a product designer. Start small, test quickly, and improve with each iteration.</p>
-          </div>
-
-          <div class="chapter-nav">
-            <span></span>
-            <a href="#getting-started" class="chapter-btn">Next chapter</a>
+            <strong>Tip:</strong> build one small section at a time, test it, then improve it.
           </div>
         </section>
 
-        <section class="doc-section reveal" id="getting-started" data-title="Getting Started">
-          <p class="eyebrow">Chapter 2</p>
-          <h2>Programming, Local Servers, and Localhost</h2>
-          <p class="lead">Let’s remove the mystery. These concepts are simple once explained in plain language.</p>
+        <section class="doc-section" id="mindset">
+          <p class="eyebrow">Mindset</p>
+          <h2>How a Designer Should Approach Coding</h2>
+          <p class="lead">Use this system to learn faster without getting overwhelmed.</p>
 
-          <div class="step-list">
-            <div class="step-item">
-              <span class="step-index">01</span>
-              <div>
-                <h3>What programming actually is</h3>
-                <p>Programming is writing clear instructions so your computer can build and show your design decisions.</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-index">02</span>
-              <div>
-                <h3>What a local server is</h3>
-                <p>A local server runs your website on your own machine so you can preview it before publishing.</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-index">03</span>
-              <div>
-                <h3>What localhost means</h3>
-                <p><code>localhost</code> is your computer talking to itself. It is your private testing address.</p>
-              </div>
-            </div>
+          <div class="checklist">
+            <article class="check-item"><span>01</span><p><strong>Small scope first:</strong> hero, then cards, then footer.</p></article>
+            <article class="check-item"><span>02</span><p><strong>Fast feedback:</strong> save, preview on localhost, refine.</p></article>
+            <article class="check-item"><span>03</span><p><strong>Commit often:</strong> protect your progress with small checkpoints.</p></article>
+            <article class="check-item"><span>04</span><p><strong>Ask with context:</strong> give AI clear goals, constraints, and expected output.</p></article>
           </div>
 
           <div class="callout note">
-            <p><strong>Key concept:</strong> You are not “breaking the internet” while learning. You are experimenting safely on your own machine.</p>
-          </div>
-
-          <div class="chapter-nav">
-            <a href="#introduction" class="chapter-btn secondary">Previous</a>
-            <a href="#basic-tools" class="chapter-btn">Next chapter</a>
+            <strong>Core rule:</strong> do not aim for perfect first draft. Aim for visible progress.
           </div>
         </section>
 
-        <section class="doc-section reveal" id="basic-tools" data-title="Basic Tools">
-          <p class="eyebrow">Chapter 3</p>
-          <h2>Basic Tools You Need</h2>
-          <p class="lead">You only need a few tools to start: code editor, terminal, and browser.</p>
+        <section class="doc-section" id="fundamentals">
+          <p class="eyebrow">Fundamentals</p>
+          <h2>Core Concepts in Plain Language</h2>
+          <p class="lead">Open each item to understand the basics clearly.</p>
 
-          <div class="tabs" data-tabs>
-            <div class="tab-buttons" role="tablist" aria-label="Tools tabs">
-              <button class="tab-btn active" role="tab" aria-selected="true" data-tab-target="editor">Code Editor</button>
-              <button class="tab-btn" role="tab" aria-selected="false" data-tab-target="terminal">Terminal</button>
-              <button class="tab-btn" role="tab" aria-selected="false" data-tab-target="commands">Commands</button>
-            </div>
-
-            <div class="tab-panel active" data-tab-panel="editor">
-              <h3>What is a code editor?</h3>
-              <p>It is your design canvas for code. <strong>Visual Studio Code</strong> is the easiest place to begin.</p>
-              <ul>
-                <li>Install VS Code</li>
-                <li>Open a folder/project</li>
-                <li>Edit files and save changes</li>
-              </ul>
-            </div>
-
-            <div class="tab-panel" data-tab-panel="terminal">
-              <h3>What is a terminal?</h3>
-              <p>It is a text-based control panel where you run commands like “start project” or “save changes”.</p>
-            </div>
-
-            <div class="tab-panel" data-tab-panel="commands">
-              <h3>Beginner terminal commands</h3>
-              <div class="code-block" data-code-block>
-                <button class="copy-btn" type="button">Copy</button>
-                <pre><code>pwd      # show current folder
-ls       # list files
-cd name  # enter folder
-mkdir x  # create folder
-code .   # open project in VS Code</code></pre>
-              </div>
-            </div>
-          </div>
-
-          <div class="chapter-nav">
-            <a href="#getting-started" class="chapter-btn secondary">Previous</a>
-            <a href="#projects" class="chapter-btn">Next chapter</a>
+          <div class="accordion">
+            <details open>
+              <summary>What is programming?</summary>
+              <p>Programming means writing instructions so computers can build interfaces and behaviors.</p>
+            </details>
+            <details>
+              <summary>What is HTML?</summary>
+              <p>HTML is the structure of your page: titles, text, buttons, images, sections.</p>
+            </details>
+            <details>
+              <summary>What is CSS?</summary>
+              <p>CSS is visual styling: colors, typography, layout, spacing, and responsive behavior.</p>
+            </details>
+            <details>
+              <summary>What is JavaScript?</summary>
+              <p>JavaScript adds interactions: tabs, sliders, menus, form behavior, animations.</p>
+            </details>
+            <details>
+              <summary>What is a local server?</summary>
+              <p>A local server runs your project on your own machine so you can test safely.</p>
+            </details>
+            <details>
+              <summary>What does localhost mean?</summary>
+              <p><code>localhost</code> is your computer talking to itself for private testing.</p>
+            </details>
           </div>
         </section>
 
-        <section class="doc-section reveal" id="projects" data-title="Working With Projects">
-          <p class="eyebrow">Chapter 4</p>
-          <h2>Working With Projects, Git, and GitHub</h2>
-          <p class="lead">This is the collaboration layer. You and AI can code, but Git helps you manage versions safely.</p>
+        <section class="doc-section" id="tools">
+          <p class="eyebrow">Tools</p>
+          <h2>Your Starter Toolkit</h2>
+          <p class="lead">These four tools are enough to start vibe coding as a designer.</p>
 
-          <div class="concept-grid">
-            <div class="concept"><h3>Repository</h3><p>Your project folder with full history.</p></div>
-            <div class="concept"><h3>Git</h3><p>The version control engine on your machine.</p></div>
-            <div class="concept"><h3>GitHub</h3><p>The cloud home for your repository.</p></div>
-            <div class="concept"><h3>Commit</h3><p>A saved checkpoint with a short message.</p></div>
-            <div class="concept"><h3>Branch</h3><p>A safe lane for testing changes.</p></div>
-            <div class="concept"><h3>Pull Request</h3><p>A request to merge work into the main version.</p></div>
+          <div class="card-grid two">
+            <article class="card tool hover-rise">
+              <h3>VS Code</h3>
+              <p>Your editing workspace for HTML, CSS, and JavaScript files.</p>
+            </article>
+            <article class="card tool hover-rise">
+              <h3>Terminal</h3>
+              <p>Your command interface to run project tasks and scripts.</p>
+            </article>
+            <article class="card tool hover-rise">
+              <h3>GitHub</h3>
+              <p>Your cloud home for repositories, version history, and collaboration.</p>
+            </article>
+            <article class="card tool hover-rise">
+              <h3>AI assistant</h3>
+              <p>Your copilot for code generation, explanations, and debugging help.</p>
+            </article>
           </div>
 
-          <div class="code-block" data-code-block>
+          <div class="callout tip">
+            <strong>Minimum setup:</strong> VS Code + Git + GitHub account + one AI tool.
+          </div>
+        </section>
+
+        <section class="doc-section" id="terminal">
+          <p class="eyebrow">Terminal</p>
+          <h2>Essential Commands for Designers</h2>
+          <p class="lead">Use this command block as your everyday cheat sheet.</p>
+
+          <div class="code-block glow" data-code>
             <button class="copy-btn" type="button">Copy</button>
-            <pre><code>git clone https://github.com/your-name/project-name.git
-cd project-name
-git checkout -b improve-homepage
+            <pre><code>pwd                     # show current folder
+ls                      # list files
+cd folder-name          # enter folder
+cd ..                   # go back one folder
+mkdir new-project       # create folder
+code .                  # open folder in VS Code
+npm install             # install dependencies
+npm run dev             # start local server</code></pre>
+          </div>
+        </section>
+
+        <section class="doc-section painted" id="git-github">
+          <p class="eyebrow">Git & GitHub</p>
+          <h2>Version Control Without Fear</h2>
+          <p class="lead">Git lets you experiment safely while keeping a recoverable history.</p>
+
+          <div class="card-grid three">
+            <article class="card hover-rise"><h3>Repository</h3><p>Your project folder plus full change history.</p></article>
+            <article class="card hover-rise"><h3>Commit</h3><p>A saved checkpoint with a clear message.</p></article>
+            <article class="card hover-rise"><h3>Branch</h3><p>A parallel lane for testing ideas safely.</p></article>
+          </div>
+
+          <div class="code-block" data-code>
+            <button class="copy-btn" type="button">Copy</button>
+            <pre><code>git clone https://github.com/your-user/my-project.git
+cd my-project
+git checkout -b new-hero-section
 git add .
-git commit -m "Improve hero layout"
-git push origin improve-homepage</code></pre>
+git commit -m "Add hero section"
+git push origin new-hero-section</code></pre>
           </div>
 
           <div class="callout warn">
-            <p><strong>Warning:</strong> Never commit random files. Always check what changed before running <code>git add .</code></p>
-          </div>
-
-          <div class="chapter-nav">
-            <a href="#basic-tools" class="chapter-btn secondary">Previous</a>
-            <a href="#ai" class="chapter-btn">Next chapter</a>
+            <strong>Safe habit:</strong> make small, frequent commits instead of one huge commit.
           </div>
         </section>
 
-        <section class="doc-section reveal" id="ai" data-title="Working With AI">
-          <p class="eyebrow">Chapter 5</p>
-          <h2>Working With AI as a Design Partner</h2>
-          <p class="lead">AI helps you write, explain, and debug code. Your role is directing it with clear context.</p>
+        <section class="doc-section" id="ai">
+          <p class="eyebrow">AI for Coding</p>
+          <h2>How to Prompt AI Effectively</h2>
+          <p class="lead">Better prompts produce better code and clearer explanations.</p>
 
-          <div class="cards-grid two">
-            <article class="card">
-              <h3>What Vibe Coding means in practice</h3>
-              <p>Describe the visual outcome, constraints, and expected behavior. Ask AI to generate the smallest useful step.</p>
-            </article>
-            <article class="card">
-              <h3>Prompt formula for designers</h3>
-              <p><strong>Goal + Context + Constraints + Output format</strong> = higher-quality code and fewer rewrites.</p>
-            </article>
+          <div class="accordion">
+            <details open>
+              <summary>Prompt template for building UI</summary>
+              <p><strong>Goal:</strong> build a clean hero section.<br /><strong>Context:</strong> website for beginner designers.<br /><strong>Constraints:</strong> HTML/CSS/JS only.<br /><strong>Output:</strong> full code + simple explanation.</p>
+            </details>
+            <details>
+              <summary>Prompt template for fixing bugs</summary>
+              <p><strong>Error:</strong> paste exact message.<br /><strong>Expected behavior:</strong> explain what should happen.<br /><strong>Current code:</strong> include snippet.<br /><strong>Request:</strong> ask for minimal patch + reason.</p>
+            </details>
+            <details>
+              <summary>Prompt template for visual polish</summary>
+              <p><strong>Visual goal:</strong> better contrast, hierarchy, and spacing.<br /><strong>Style reference:</strong> describe desired look.<br /><strong>Request:</strong> improve progressively without rewriting everything.</p>
+            </details>
           </div>
 
-          <div class="code-block" data-code-block>
+          <div class="code-block glow" data-code>
             <button class="copy-btn" type="button">Copy</button>
-            <pre><code>I am a beginner designer.
-Goal: Create a pricing section.
-Context: Existing site uses Inter and a clean white layout.
-Constraints: Vanilla HTML/CSS/JS only.
-Output: Return full code with comments and explain each block simply.</code></pre>
-          </div>
-
-          <div class="chapter-nav">
-            <a href="#projects" class="chapter-btn secondary">Previous</a>
-            <a href="#workflow" class="chapter-btn">Next chapter</a>
+            <pre><code>Act as a senior frontend mentor.
+I am a designer with no coding background.
+Goal: Build a clear pricing section.
+Stack: HTML/CSS/JS only.
+Return: 1) complete code, 2) simple explanation, 3) 3 common mistakes to avoid.</code></pre>
           </div>
         </section>
 
-        <section class="doc-section reveal" id="workflow" data-title="Real Workflow">
-          <p class="eyebrow">Chapter 6</p>
-          <h2>The Real Workflow You Will Repeat</h2>
-          <p class="lead">This is your practical weekly loop as a designer who codes.</p>
+        <section class="doc-section" id="workflow">
+          <p class="eyebrow">Real Workflow</p>
+          <h2>From Idea to Live URL</h2>
+          <p class="lead">Click each node to understand what happens at every stage.</p>
 
-          <ol class="workflow-list">
-            <li>Clone a project from GitHub</li>
-            <li>Open it in VS Code</li>
-            <li>Run the development server</li>
-            <li>Edit code and preview live</li>
-            <li>Make a commit</li>
-            <li>Push to GitHub</li>
-            <li>Create a pull request</li>
-          </ol>
-
-          <div class="section-divider"></div>
-
-          <div class="step-list compact">
-            <div class="step-item">
-              <span class="step-index">A</span>
-              <div>
-                <h3>Run local server</h3>
-                <p>Use <code>npm run dev</code> and open the shown localhost URL.</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-index">B</span>
-              <div>
-                <h3>Edit and save</h3>
-                <p>Each save updates the preview. This is your fastest design feedback loop.</p>
-              </div>
-            </div>
+          <div class="workflow-line" aria-hidden="true"></div>
+          <div class="workflow-grid">
+            <button class="flow-node active" data-flow="idea">Idea</button>
+            <button class="flow-node" data-flow="prompt">Prompt</button>
+            <button class="flow-node" data-flow="code">Code</button>
+            <button class="flow-node" data-flow="run">Run</button>
+            <button class="flow-node" data-flow="publish">Publish</button>
           </div>
 
-          <div class="chapter-nav">
-            <a href="#ai" class="chapter-btn secondary">Previous</a>
-            <a href="#first-project" class="chapter-btn">Next chapter</a>
+          <article class="flow-panel" id="flowPanel">
+            <h3>Idea</h3>
+            <p>Define UX goal and visual outcome before generating any code.</p>
+          </article>
+
+          <div class="timeline">
+            <article><strong>Day 1:</strong> setup + first hero section.</article>
+            <article><strong>Day 2:</strong> more sections + responsive adjustments.</article>
+            <article><strong>Day 3:</strong> polish, commits, deploy, and feedback.</article>
           </div>
         </section>
 
-        <section class="doc-section reveal" id="first-project" data-title="First Project">
-          <p class="eyebrow">Chapter 7</p>
-          <h2>Your First Project: Ship a Simple Website</h2>
-          <p class="lead">You learn faster by publishing. Build, run, upload, and launch.</p>
+        <section class="doc-section painted" id="first-project">
+          <p class="eyebrow">First Project</p>
+          <h2>Build and Publish Your First Website</h2>
+          <p class="lead">A clear sequence from empty files to a live project.</p>
 
-          <div class="cards-grid">
-            <article class="card">
-              <h3>1. Create files</h3>
-              <p>Start with <code>index.html</code>, <code>style.css</code>, and <code>script.js</code>.</p>
-            </article>
-            <article class="card">
-              <h3>2. Run locally</h3>
-              <p>Use a local dev server to preview your site.</p>
-            </article>
-            <article class="card">
-              <h3>3. Publish online</h3>
-              <p>Push to GitHub and deploy with GitHub Pages or Vercel.</p>
-            </article>
+          <div class="steps">
+            <article class="step-card"><span>1</span><p>Create <code>index.html</code>, <code>style.css</code>, <code>script.js</code>.</p></article>
+            <article class="step-card"><span>2</span><p>Build a hero section and a simple features block.</p></article>
+            <article class="step-card"><span>3</span><p>Make it responsive for mobile.</p></article>
+            <article class="step-card"><span>4</span><p>Test links, buttons, and spacing quality.</p></article>
+            <article class="step-card"><span>5</span><p>Commit and push your progress.</p></article>
+            <article class="step-card"><span>6</span><p>Deploy with GitHub Pages or Vercel and share your URL.</p></article>
           </div>
 
-          <div class="callout note">
-            <p><strong>Milestone:</strong> Your first live URL is your proof that you can ship code-based design work.</p>
-          </div>
-
-          <div class="chapter-nav">
-            <a href="#workflow" class="chapter-btn secondary">Previous</a>
-            <a href="#best-practices" class="chapter-btn">Next chapter</a>
-          </div>
-        </section>
-
-        <section class="doc-section reveal" id="best-practices" data-title="Best Practices">
-          <p class="eyebrow">Chapter 8</p>
-          <h2>Best Practices for Confident Progress</h2>
-          <p class="lead">You do not need to be perfect. You need a safe process.</p>
-
-          <div class="step-list">
-            <div class="step-item">
-              <span class="step-index">01</span>
-              <div>
-                <h3>How to read errors</h3>
-                <p>Read the first error line first. It usually points to the exact file and line to fix.</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-index">02</span>
-              <div>
-                <h3>How to ask AI for help</h3>
-                <p>Share the error, expected behavior, and file snippet. Ask AI for minimal changes only.</p>
-              </div>
-            </div>
-            <div class="step-item">
-              <span class="step-index">03</span>
-              <div>
-                <h3>How to avoid breaking the project</h3>
-                <p>Work in branches, commit often, and test after each small change.</p>
-              </div>
-            </div>
+          <div class="code-block glow" data-code>
+            <button class="copy-btn" type="button">Copy</button>
+            <pre><code>git add .
+git commit -m "Launch first website"
+git push origin main</code></pre>
           </div>
 
           <div class="callout tip">
-            <p><strong>Final reminder:</strong> Coding is a design medium. The more you practice small steps, the faster your confidence grows.</p>
+            <strong>First milestone:</strong> ship something simple. Completion beats perfection.
+          </div>
+        </section>
+
+        <section class="doc-section" id="debug">
+          <p class="eyebrow">Debugging</p>
+          <h2>Fix Errors Without Panic</h2>
+          <p class="lead">Follow this process every time something breaks.</p>
+
+          <div class="checklist">
+            <article class="check-item"><span>1</span><p>Read the first line of the error.</p></article>
+            <article class="check-item"><span>2</span><p>Find the file name and line number.</p></article>
+            <article class="check-item"><span>3</span><p>Compare actual behavior vs expected behavior.</p></article>
+            <article class="check-item"><span>4</span><p>Ask AI for a minimal fix and explanation.</p></article>
+            <article class="check-item"><span>5</span><p>Retest and commit if the fix works.</p></article>
           </div>
 
-          <div class="chapter-nav">
-            <a href="#first-project" class="chapter-btn secondary">Previous</a>
-            <a href="#introduction" class="chapter-btn">Back to top</a>
+          <div class="callout warn">
+            <strong>Avoid:</strong> asking AI to rewrite everything. Ask for precise, small patches.
+          </div>
+        </section>
+
+        <section class="doc-section" id="glossary">
+          <p class="eyebrow">Glossary</p>
+          <h2>Quick Dictionary</h2>
+          <p class="lead">Key words you will see every day.</p>
+
+          <div class="glossary-grid">
+            <article class="card"><h3>Repo</h3><p>Project folder with version history.</p></article>
+            <article class="card"><h3>Commit</h3><p>A saved snapshot of changes.</p></article>
+            <article class="card"><h3>Branch</h3><p>A separate lane for experimentation.</p></article>
+            <article class="card"><h3>Pull Request</h3><p>A request to merge changes.</p></article>
+            <article class="card"><h3>Deploy</h3><p>Publishing your project online.</p></article>
+            <article class="card"><h3>Bug</h3><p>An error in behavior or UI.</p></article>
+          </div>
+        </section>
+
+        <section class="doc-section painted" id="roadmap">
+          <p class="eyebrow">Roadmap</p>
+          <h2>30-Day Learning Plan</h2>
+          <p class="lead">A practical path to build momentum and consistency.</p>
+
+          <div class="roadmap">
+            <article class="roadmap-item">
+              <h3>Week 1 · Fundamentals</h3>
+              <p>Basic HTML/CSS + terminal + first simple layout.</p>
+            </article>
+            <article class="roadmap-item">
+              <h3>Week 2 · Interactions</h3>
+              <p>Basic JavaScript + tabs, menus, and interaction states.</p>
+            </article>
+            <article class="roadmap-item">
+              <h3>Week 3 · Workflow</h3>
+              <p>Git, branches, commits, pull requests, and safe collaboration.</p>
+            </article>
+            <article class="roadmap-item">
+              <h3>Week 4 · Shipping</h3>
+              <p>Complete one project, deploy it, and improve based on feedback.</p>
+            </article>
+          </div>
+
+          <div class="cta-row">
+            <button class="pill-btn" data-scroll="#introduction" type="button">Back to Top</button>
+            <button class="pill-btn secondary" data-scroll="#faq" type="button">Go to FAQ</button>
+          </div>
+        </section>
+
+        <section class="doc-section" id="faq">
+          <p class="eyebrow">FAQ</p>
+          <h2>Common Questions</h2>
+          <p class="lead">What most beginner designers ask when starting.</p>
+
+          <div class="accordion">
+            <details open>
+              <summary>Do I need to learn all theory first?</summary>
+              <p>No. Start with small projects and learn what you need while building.</p>
+            </details>
+            <details>
+              <summary>What if I break the project?</summary>
+              <p>Git commits let you return to a stable version safely.</p>
+            </details>
+            <details>
+              <summary>When should I use AI?</summary>
+              <p>Use AI for speed, explanations, and debugging. Always review UX decisions yourself.</p>
+            </details>
+            <details>
+              <summary>How fast can I publish my first site?</summary>
+              <p>If the scope is small, you can ship a first version in 1 to 7 days.</p>
+            </details>
+          </div>
+
+          <div class="callout tip">
+            <strong>Final note:</strong> designing + coding + shipping is a compound skill. Consistency wins.
           </div>
         </section>
       </main>

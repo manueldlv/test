@@ -1,20 +1,29 @@
 const sections = Array.from(document.querySelectorAll('.doc-section'));
 const navLinks = Array.from(document.querySelectorAll('.nav-link'));
 const progressBar = document.getElementById('progressBar');
-const progressLabel = document.getElementById('progressLabel');
 
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
+const flowData = {
+  idea: {
+    title: 'Idea',
+    text: 'Define the UX goal: what should the user understand, feel, and do?',
   },
-  { threshold: 0.15 }
-);
-
-sections.forEach((section) => sectionObserver.observe(section));
+  prompt: {
+    title: 'Prompt',
+    text: 'Write a clear prompt with goal, context, constraints, and output format.',
+  },
+  code: {
+    title: 'Code',
+    text: 'Generate a first draft, then refine structure, spacing, and interactions as a designer.',
+  },
+  run: {
+    title: 'Run',
+    text: 'Test on localhost. Save often and validate changes in real time.',
+  },
+  publish: {
+    title: 'Publish',
+    text: 'Push to GitHub and deploy so you can share a real URL.',
+  },
+};
 
 const activeObserver = new IntersectionObserver(
   (entries) => {
@@ -30,7 +39,7 @@ const activeObserver = new IntersectionObserver(
     });
   },
   {
-    rootMargin: '-38% 0px -52% 0px',
+    rootMargin: '-42% 0px -50% 0px',
     threshold: 0,
   }
 );
@@ -38,61 +47,58 @@ const activeObserver = new IntersectionObserver(
 sections.forEach((section) => activeObserver.observe(section));
 
 function updateProgress() {
-  const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollHeight > 0 ? (window.scrollY / scrollHeight) * 100 : 0;
-  const clamped = Math.max(0, Math.min(100, progress));
-
-  progressBar.style.width = `${clamped}%`;
-  progressLabel.textContent = `${Math.round(clamped)}% complete`;
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
+  progressBar.style.width = `${Math.max(0, Math.min(100, progress))}%`;
 }
 
 window.addEventListener('scroll', updateProgress, { passive: true });
 window.addEventListener('resize', updateProgress);
 updateProgress();
 
-const tabGroups = document.querySelectorAll('[data-tabs]');
-
-tabGroups.forEach((group) => {
-  const buttons = Array.from(group.querySelectorAll('.tab-btn'));
-  const panels = Array.from(group.querySelectorAll('.tab-panel'));
-
-  buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const target = button.dataset.tabTarget;
-
-      buttons.forEach((btn) => {
-        const isCurrent = btn === button;
-        btn.classList.toggle('active', isCurrent);
-        btn.setAttribute('aria-selected', String(isCurrent));
-      });
-
-      panels.forEach((panel) => {
-        panel.classList.toggle('active', panel.dataset.tabPanel === target);
-      });
-    });
+document.querySelectorAll('[data-scroll]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const target = document.querySelector(button.dataset.scroll);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 });
 
-const codeBlocks = document.querySelectorAll('[data-code-block]');
+const flowNodes = Array.from(document.querySelectorAll('.flow-node'));
+const flowPanel = document.getElementById('flowPanel');
+
+flowNodes.forEach((node) => {
+  const activate = () => {
+    const key = node.dataset.flow;
+    const content = flowData[key];
+
+    flowNodes.forEach((item) => item.classList.remove('active'));
+    node.classList.add('active');
+
+    flowPanel.innerHTML = `<h3>${content.title}</h3><p>${content.text}</p>`;
+  };
+
+  node.addEventListener('click', activate);
+  node.addEventListener('mouseenter', activate);
+});
+
+const codeBlocks = Array.from(document.querySelectorAll('[data-code]'));
 
 codeBlocks.forEach((block) => {
   const button = block.querySelector('.copy-btn');
   const code = block.querySelector('code');
 
   button.addEventListener('click', async () => {
-    const text = code.innerText;
-
     try {
-      await navigator.clipboard.writeText(text);
+      await navigator.clipboard.writeText(code.innerText);
       button.textContent = 'Copied';
-      window.setTimeout(() => {
-        button.textContent = 'Copy';
-      }, 1200);
     } catch {
       button.textContent = 'Failed';
-      window.setTimeout(() => {
-        button.textContent = 'Copy';
-      }, 1200);
     }
+
+    window.setTimeout(() => {
+      button.textContent = 'Copy';
+    }, 1100);
   });
 });
