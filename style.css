@@ -7,6 +7,13 @@
   --c1: #0957b2;
   --c2: #5ddee5;
   --radius: 18px;
+  --code-bg: #1f2a44;
+  --code-bg-2: #172238;
+  --code-cream: #f6edd9;
+  --code-cmd: #79d9e3;
+  --code-flag: #9ec3ff;
+  --code-comment: #c8b89b;
+  --code-arg: #ffd89f;
 }
 
 * {
@@ -217,6 +224,30 @@ h3 {
   background: linear-gradient(180deg, #ffffff, #f7fbff);
 }
 
+.card-grid .card:nth-child(3n + 1),
+.glossary-grid .card:nth-child(3n + 1),
+.roadmap .roadmap-item:nth-child(3n + 1),
+.steps .step-card:nth-child(3n + 1),
+.checklist .check-item:nth-child(3n + 1) {
+  background: linear-gradient(180deg, #ffffff, #f3f9ff);
+}
+
+.card-grid .card:nth-child(3n + 2),
+.glossary-grid .card:nth-child(3n + 2),
+.roadmap .roadmap-item:nth-child(3n + 2),
+.steps .step-card:nth-child(3n + 2),
+.checklist .check-item:nth-child(3n + 2) {
+  background: linear-gradient(180deg, #ffffff, #f7fcff);
+}
+
+.card-grid .card:nth-child(3n + 3),
+.glossary-grid .card:nth-child(3n + 3),
+.roadmap .roadmap-item:nth-child(3n + 3),
+.steps .step-card:nth-child(3n + 3),
+.checklist .check-item:nth-child(3n + 3) {
+  background: linear-gradient(180deg, #ffffff, #f5f6ff);
+}
+
 .card {
   padding: 16px;
 }
@@ -290,6 +321,9 @@ code {
   margin-top: 16px;
   position: relative;
   overflow: auto;
+  border-color: #253353;
+  background: linear-gradient(160deg, var(--code-bg), var(--code-bg-2));
+  box-shadow: 0 12px 30px rgba(16, 24, 44, 0.22);
 }
 
 .copy-btn {
@@ -297,18 +331,18 @@ code {
   right: 10px;
   top: 10px;
   border-radius: 999px;
-  border: 1px solid #bad5f9;
-  background: #ffffff;
-  color: var(--c1);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--code-cream);
   padding: 7px 11px;
   font-weight: 600;
   cursor: pointer;
 }
 
 .copy-btn:hover {
-  background: linear-gradient(90deg, var(--c1), var(--c2));
+  background: linear-gradient(90deg, rgba(93, 222, 229, 0.55), rgba(9, 87, 178, 0.55));
   color: #ffffff;
-  border-color: transparent;
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 pre {
@@ -319,7 +353,24 @@ pre {
 pre code {
   background: none;
   padding: 0;
-  color: #16539c;
+  color: var(--code-cream);
+  line-height: 1.7;
+}
+
+.code-block pre code .cmd {
+  color: var(--code-cmd);
+}
+
+.code-block pre code .flag {
+  color: var(--code-flag);
+}
+
+.code-block pre code .comment {
+  color: var(--code-comment);
+}
+
+.code-block pre code .arg {
+  color: var(--code-arg);
 }
 
 .glow {
@@ -332,7 +383,7 @@ pre code {
     box-shadow: 0 0 0 rgba(93, 222, 229, 0);
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(93, 222, 229, 0.12);
+    box-shadow: 0 0 0 6px rgba(93, 222, 229, 0.18);
   }
 }
 

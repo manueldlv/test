@@ -85,9 +85,58 @@ flowNodes.forEach((node) => {
 
 const codeBlocks = Array.from(document.querySelectorAll('[data-code]'));
 
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function decorateConsoleLine(line) {
+  const trimmed = line.trim();
+  if (!trimmed) {
+    return '';
+  }
+
+  const commentIndex = line.indexOf('#');
+  let base = line;
+  let comment = '';
+
+  if (commentIndex >= 0) {
+    base = line.slice(0, commentIndex).trimEnd();
+    comment = line.slice(commentIndex);
+  }
+
+  const tokens = base.split(/\s+/).filter(Boolean);
+  if (tokens.length === 0) {
+    return `<span class="comment">${escapeHtml(comment)}</span>`;
+  }
+
+  const [first, ...rest] = tokens;
+  const isCommand = /^(git|npm|npx|cd|ls|pwd|code|mkdir|rm)$/i.test(first);
+  const firstToken = isCommand ? `<span class="cmd">${escapeHtml(first)}</span>` : escapeHtml(first);
+  const restTokens = rest
+    .map((token) => {
+      if (token.startsWith('-')) {
+        return `<span class="flag">${escapeHtml(token)}</span>`;
+      }
+      if (token.includes('/') || token.includes('.') || token.includes(':')) {
+        return `<span class="arg">${escapeHtml(token)}</span>`;
+      }
+      return escapeHtml(token);
+    })
+    .join(' ');
+
+  const withComment = comment ? ` <span class="comment">${escapeHtml(comment)}</span>` : '';
+  return `${firstToken}${restTokens ? ` ${restTokens}` : ''}${withComment}`;
+}
+
 codeBlocks.forEach((block) => {
   const button = block.querySelector('.copy-btn');
   const code = block.querySelector('code');
+  const raw = code.textContent || '';
+  const lines = raw.replace(/\r\n/g, '\n').split('\n');
+  code.innerHTML = lines.map((line) => decorateConsoleLine(line)).join('\n');
 
   button.addEventListener('click', async () => {
     try {
